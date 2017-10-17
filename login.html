@@ -1,0 +1,29 @@
+<form name = "myForm" novalidate>
+	<div id = form1 ng-controller = "controllerLogin">
+		<p id = date_time>{{showDate}} <br> The time is: {{appTime}}</p>
+		<header>{{myHeader}}</header>
+		<div class = "form_body">
+			<nav>
+				<div class = "navClass" id = "mySidenav">
+					<a href = "/register" id = "navregister">Register</a>
+					<a href = "/login" id = "navlogin">LogIn</a>
+				</div>
+			</nav>
+			<article>
+				<b>User Name: *</b><br>
+				<input type = "text" ng-model = "user.uname" ng-value = "admin"><br>
+				<span class = "emply_error" ng-show = "error_uemply">User name can't be empty !</span><br>
+				<b>Password: *</b><br>
+				<input ng-show = "showpassword" type = "text" ng-model = "user.password" ng-value = "admin123">
+				<input ng-hide = "showpassword" type = "password" ng-model = "user.password" ng-value = "admin123" placeholder = "&#9679;&#9679;&#9679;&#9679;&#9679;">
+				<input type = "checkbox" ng-model = "showpassword" ng-checked = "false"><br>
+				<span class = "emply_error" ng-show = "error_pemply">User password can't be empty !</span><br><br>
+			</article>
+		</div>
+		<br>
+		<span id = button_login>
+			<button id = "green" ng-click = "login(user)"><a href = "javascript:void(0);" style = "background: green; text-decoration: none; color: white;">Login</a></button>
+			<button id = "red" ng-click = "cancel()">Cancel</button>
+		</span>	
+	</div>
+</form>

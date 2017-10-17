@@ -1,0 +1,31 @@
+<form name = "myForm" novalidate>
+	<div id = form1 ng-controller="controllerProfile">
+		<p id = date_time>{{showDate}} <br> The time is: {{appTime}}</p>
+		<header>{{myHeader}}</header>
+		<div class="form_body">
+			<nav>
+				<div class="navClass" id="mySidenav">
+					<a href="/profile" id="navprofile">Profile</a>
+          <a href="/user_details" id="navuserdetails" ng-if="user.usertype == 'admin'">User Details</a>
+          <a href="/galary" id="navgalary">Galary</a>
+				</div>
+			</nav>
+			<article>
+				<button id="green" ng-click="logout()" style="float: right;"><a href="javascript:void(0);" style="background: green; text-decoration: none; color: white;">Log Out</a></button>
+				<br><br>
+				<b>First Name: </b> {{user.fname}}<br>
+				<b>Last Name: </b> {{user.lname}}<br>
+				<b>Date of Birth: </b> {{user.bdate | date}}<br>
+				<b>Year of Experience: </b> {{user.year}}<br>
+				<b>Email ID: </b> {{user.email}}<br>
+				<b>Phone Number : </b> {{user.number}}<br>	
+				<br><br>
+			</article>
+		</div>
+		<br>
+		<span>
+			<footer>By Riya Kapuria</footer>
+		</span>
+	</div>
+</form>
+

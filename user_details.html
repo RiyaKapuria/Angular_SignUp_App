@@ -1,0 +1,48 @@
+<form name = "myForm" novalidate>
+	<div id = form1 ng-controller = "controllerUserDetails">
+		<p id = date_time>{{showDate}} <br> The time is: {{appTime}}</p>
+		<header>{{myHeader}}</header>
+		<div class = "form_body">
+			<nav>
+				<div class = "navClass" id = "mySidenav">
+					<a href = "/profile" id = "navprofile">Profile</a>
+					<a href = "/user_details" id = "navuserdetails">User Details</a>
+					<a href = "/galary" id = "navgalary">Galary</a>
+				</div>
+			</nav> 
+			<article>
+				<input type = "text" id = "search" placeholder = "Search.." ng-model = "search">
+				<button id = "green" ng-click = "logout()" style="float: right;"><a href = "javascript:void(0);" style = "background: green; text-decoration: none; color: white;">Log Out</a></button>
+				<br><br>
+				<table  class = "LogInTime" ng-if = "data.length > 0" width = "auto">
+					<tr>
+						<th ng-click="orderByMe('EmpID')">
+							<h4>ID</h4>
+							<span class = "sortorder" ng-show = "show_EmpId && reverse" ></span>
+							<span class = "sortorder reverse" ng-show = "show_EmpId && !reverse" ></span>
+						</th>
+						<th ng-click="orderByMe('Name')">
+							<h4>Name</h4>
+							<span class = "sortorder" ng-show = "show_name && reverse" ></span>
+							<span class = "sortorder reverse" ng-show = "show_name && !reverse" ></span>
+						</th>
+						<th ng-click="orderByMe('LodinTime')">
+							<h4>LogIn Time</h4>
+							<span class = "sortorder" ng-show = "show_LodinTime && reverse" ></span>
+							<span class = "sortorder reverse" ng-show = "show_LodinTime && !reverse" ></span>
+						</th>
+					</tr>
+					<tr ng-repeat = "x in data | filter : search">
+						<td>{{x.EmpID}}</td>
+						<td>{{x.Name}}</td>
+						<td>{{x.LodinTime}}</td>
+					</tr>
+				</table>
+			</article>
+		</div>
+		<br>
+		<span>
+			<footer>By Riya Kapuria</footer>
+		</span>	
+	</div>
+</form>

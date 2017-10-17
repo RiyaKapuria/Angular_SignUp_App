@@ -1,0 +1,47 @@
+<form name = "myForm" novalidate>
+	<div id = form1 ng-controller="controllerReg">
+		<p id = date_time>{{showDate}} <br> The time is: {{appTime}}</p>
+		<header>{{myHeader}}</header>
+		<div class="form_body">
+			<nav>
+				<div class="navClass" id="mySidenav">
+					<a href="/register" id="navregister">Register</a>
+					<a href="/login" id="navlogin">LogIn</a>
+				</div>
+			</nav>
+			<article>
+				<b>First Name: *</b><br>
+				<input type="text" name="myFname" ng-model="user.fname" placeholder="Riya" ng-pattern="/^[a-zA-Z\s]*$/" class= "inputColor" required>
+				<span class="emply_error" ng-if="myForm.myFname.$touched && myForm.myFname.$error.required"> Required!</span>
+				<span class="other_error" ng-show="myForm.myFname.$dirty&&myForm.myFname.$error.pattern"> Only Letters Allowed</span><br>
+				<b>Last Name: </b><br>
+				<input type="text" name="myLname" ng-model="user.lname" placeholder="Kapuria"><br>
+				<b>Date of Birth: *</b><br>
+				<input type="date" name="myDate" ng-model="user.bdate" placeholder="dd/mm/yyyy" required max="{{max}}">
+				<span class="emply_error" ng-if="myForm.myDate.$touched && myForm.myDate.$error.required"> Required!</span>
+				<span class = "other_error" ng-show="myForm.myDate.$error.max"> Date can't be in future</span><br>
+				<b>Year of Experience: *</b><br>
+				<input type="number" name="myYear" ng-model="user.year" placeholder="2" class="inputColor" required>
+				<span class="emply_error" ng-if="myForm.myYear.$touched && myForm.myYear.$error.required"> Required!</span>
+				<span class="other_error" ng-show="myForm.myYear.$error.number"> Please enter your experience year</span><br>
+				<b>Email : *</b><br>
+				<input type="email" name="myAddress" ng-model="user.email" placeholder="riya@gmial.com" class="inputColor" required>
+				<span class="emply_error" ng-if="myForm.myAddress.$touched && myForm.myAddress.$error.required"> Required!</span>
+				<span class="other_error" ng-show="myForm.myAddress.$error.email"> Not a valid Email Address</span><br>
+				<b>Phone Number : *</b><br>
+				<input type="text" name="myNymber" ng-model="user.number" placeholder="9685741238" ng-pattern="/^[0-9]{10,10}$/" class="inputColor" required>
+				<span class="emply_error" ng-if="myForm.myNymber.$touched && myForm.myNymber.$error.required"> Required!</span>
+				<span class="other_error" ng-show="myForm.myNymber.$dirty&&myForm.myNymber.$error.pattern"> Only Numbers Allowed, Maximum 10 Characters</span><br>
+				<b>Upload your CV:</b><br>
+				<input type="file" file-input="files" name="myfile" required>
+				<br><br>
+			</article>
+		</div>
+		<br>
+		<span id="button_register">
+			<button id="green" ng-click="register(user)" ng-hide="myForm.$invalid">Register</button>
+			<button id="red" ng-click="reset(user)">Reset</button>
+		</span>
+	</div>
+</form>
+

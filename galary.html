@@ -1,0 +1,41 @@
+<form name = "myForm" novalidate>
+	<div id = form1 ng-controller = "controllerGalary">
+	<p id = date_time>{{showDate}} <br> The time is: {{appTime}}</p>
+	<header>{{myHeader}}</header>
+		<div class="form_body">
+			<nav>
+				<div class="navClass" id="mySidenav">
+					<a href="/profile" id="navprofile">Profile</a>
+          <a href="/user_details" id="navuserdetails" ng-if="user.usertype == 'admin'">User Details</a>
+          <a href="/galary" id="navgalary">Galary</a>
+				</div>
+			</nav>
+			<article>
+				<button id = "green" ng-click = "logout()" style="float: right;"><a href = "javascript:void(0);" style = "background: green; text-decoration: none; color: white;">Log Out</a></button>
+				<div class = "galary_animation" style = "background-color: #fffaf2; width: 90%; height: 60%;">
+					<ui-carousel
+					slides="images" 
+					slides-to-show="3" 
+					slides-to-scroll="1" 
+					autoplay="true" 
+					autoplay-speed="2000" 
+					dots="true">
+					  <carousel-item>
+					    <img src="{{ item }}"/>
+					    <h3>{{item}}</h3>
+					  </carousel-item>
+					</ui-carousel>
+				</div>
+			</article> 
+ 		</div>
+ 		<span>
+      <footer>By Riya Kapuria</footer>
+    </span>
+	</div>
+</form>
+
+
+
+
+
+
